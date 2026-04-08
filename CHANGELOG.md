@@ -1,3 +1,8 @@
+# v1.0.0 (2026-04-08)
+
+## ✨ New Features
+- [`9d74272`](https://github.com/fredrkl/guid-tryout/commit/9d74272)  Init
+
 # [v1.3.0](https://github.com/fredrkl/template-base/compare/v1.2.0...v1.3.0) (2025-08-03)
 
 ## ✨ New Features
