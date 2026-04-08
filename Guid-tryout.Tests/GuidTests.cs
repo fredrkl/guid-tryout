@@ -21,13 +21,18 @@ public class GuidTests
     public void GuidFromString()
     {
       var md5 = MD5.Create();
+
       var hash_appelsin = md5.ComputeHash(Encoding.UTF8.GetBytes("appelsin"));
-      var hash_appelsin_again = md5.ComputeHash(Encoding.UTF8.GetBytes("appelsin"));
-      Guid actual = new(hash_appelsin);
-      Assert.That(actual, Is.Not.Empty);
-      Guid expected = new(hash_appelsin_again);
-      Console.WriteLine(actual);
-      Console.WriteLine(expected);
-      Assert.That(new Guid(hash_appelsin), Is.EqualTo(expected));
+      var hash_appelsin_again = md5.ComputeHash(Encoding.UTF8.GetBytes("appelsinappelsinappelsinappelsij"));
+      Guid hash_appelsin_guid = new(hash_appelsin);
+      Guid hash_appelsin_again_guid = new(hash_appelsin_again);
+
+      // Debugs
+      Console.WriteLine(hash_appelsin_guid);
+      Console.WriteLine(hash_appelsin_again_guid);
+
+      // Asserts
+      Assert.That(hash_appelsin_guid, Is.Not.EqualTo(hash_appelsin_again_guid));
+      Assert.That(hash_appelsin_guid, Is.Not.Empty);
     }
 }
