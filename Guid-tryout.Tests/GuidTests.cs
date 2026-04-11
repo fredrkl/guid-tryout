@@ -20,17 +20,25 @@ public class GuidTests
     [Test]
     public void GuidFromString()
     {
-      var hash_appelsin = MD5.HashData(Encoding.UTF8.GetBytes("retry1:5xbflsdkjfks"));
-      var hash_appelsin_again = MD5.HashData(Encoding.UTF8.GetBytes("appelsinappelsinappelsinappelsij"));
-      Guid hash_appelsin_guid = new(hash_appelsin);
-      Guid hash_appelsin_again_guid = new(hash_appelsin_again);
+      var short_hash = MD5.HashData(Encoding.UTF8.GetBytes("retry1:5xbflsdkjfks"));
+      var long_hash = MD5.HashData(Encoding.UTF8.GetBytes("appelsinappelsinappelsinappelsij"));
+      Guid guid_from_short_hash = new(short_hash);
+      Guid guid_from_long_hash = new(long_hash);
 
       // Debugs
-      Console.WriteLine(hash_appelsin_guid);
-      Console.WriteLine(hash_appelsin_again_guid);
+      Console.WriteLine(guid_from_short_hash);
+      Console.WriteLine(guid_from_long_hash);
 
       // Asserts
-      Assert.That(hash_appelsin_guid, Is.Not.EqualTo(hash_appelsin_again_guid));
-      Assert.That(hash_appelsin_guid, Is.Not.Empty);
+      Assert.That(guid_from_short_hash, Is.Not.EqualTo(guid_from_long_hash));
+      Assert.That(guid_from_short_hash, Is.Not.Empty);
+    }
+
+    [Test]
+    public void SameInputSameGuid()
+    {
+      Guid first = new(MD5.HashData(Encoding.UTF8.GetBytes("Appelsin")));
+      Guid second = new(MD5.HashData(Encoding.UTF8.GetBytes("Appelsin")));
+      Assert.That(first, Is.EqualTo(second));
     }
 }
