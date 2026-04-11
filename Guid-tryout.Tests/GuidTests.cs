@@ -20,10 +20,8 @@ public class GuidTests
     [Test]
     public void GuidFromString()
     {
-      var md5 = MD5.Create();
-
-      var hash_appelsin = md5.ComputeHash(Encoding.UTF8.GetBytes("appelsin"));
-      var hash_appelsin_again = md5.ComputeHash(Encoding.UTF8.GetBytes("appelsinappelsinappelsinappelsij"));
+      var hash_appelsin = MD5.HashData(Encoding.UTF8.GetBytes("retry1:5xbflsdkjfks"));
+      var hash_appelsin_again = MD5.HashData(Encoding.UTF8.GetBytes("appelsinappelsinappelsinappelsij"));
       Guid hash_appelsin_guid = new(hash_appelsin);
       Guid hash_appelsin_again_guid = new(hash_appelsin_again);
 
