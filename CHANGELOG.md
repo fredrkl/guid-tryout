@@ -1,3 +1,8 @@
+# [v1.1.0](https://github.com/fredrkl/guid-tryout/compare/v1.0.0...v1.1.0) (2026-04-11)
+
+## ✨ New Features
+- [`0fa747b`](https://github.com/fredrkl/guid-tryout/commit/0fa747b)  Same input same guid
+
 # v1.0.0 (2026-04-08)
 
 ## ✨ New Features
