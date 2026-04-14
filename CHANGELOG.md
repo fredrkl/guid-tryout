@@ -1,3 +1,8 @@
+# [v1.2.0](https://github.com/fredrkl/guid-tryout/compare/v1.1.0...v1.2.0) (2026-04-14)
+
+## ✨ New Features
+- [`c1f47b1`](https://github.com/fredrkl/guid-tryout/commit/c1f47b1)  Using xUnit
+
 # [v1.1.0](https://github.com/fredrkl/guid-tryout/compare/v1.0.0...v1.1.0) (2026-04-11)
 
 ## ✨ New Features
