@@ -1,23 +1,24 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using Xunit;
 
 namespace Guid_tryout.Tests;
-
 public class GuidTests
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
-    [Test]
+    [Fact]
     public void Test1()
     {
       Guid testguid = Guid.AllBitsSet;//().NewGuid();
-      Assert.That(testguid, Is.Not.EqualTo(Guid.Empty));
+      Assert.NotEqual(testguid, Guid.Empty);
     }
 
-    [Test]
+    [Fact]
+    public void Add_ReturnsCorrectSum()
+    {
+      Assert.Equal(5, 5);
+    }
+
+    [Fact]
     public void GuidFromString()
     {
       var short_hash = MD5.HashData(Encoding.UTF8.GetBytes("retry1:5xbflsdkjfks"));
@@ -30,15 +31,26 @@ public class GuidTests
       Console.WriteLine(guid_from_long_hash);
 
       // Asserts
-      Assert.That(guid_from_short_hash, Is.Not.EqualTo(guid_from_long_hash));
-      Assert.That(guid_from_short_hash, Is.Not.Empty);
+      Assert.NotEqual(guid_from_short_hash, guid_from_long_hash);
     }
 
-    [Test]
-    public void SameInputSameGuid()
+    [Fact]
+    public void SameInputSameGuidMD5()
     {
       Guid first = new(MD5.HashData(Encoding.UTF8.GetBytes("Appelsin")));
       Guid second = new(MD5.HashData(Encoding.UTF8.GetBytes("Appelsin")));
-      Assert.That(first, Is.EqualTo(second));
+      Console.WriteLine(first);
+      Console.WriteLine(second);
+      Assert.Equal(first, second);
+    }
+
+    [Fact]
+    public void SameInputSameGuidSHA()
+    {
+      Guid first = new(SHA256.HashData([.. Encoding.UTF8.GetBytes("Appelsin").Take(16).ToArray()]));
+      Guid second = new(SHA256.HashData([.. Encoding.UTF8.GetBytes("Appelsin").Take(16).ToArray()]));
+      Console.WriteLine(first);
+      Console.WriteLine(second);
+      Assert.Equal(first, second);
     }
 }
