@@ -1,5 +1,3 @@
-using Xunit;
-
 namespace Guid_tryout.Tests;
 public class JourneyReferenceTests
 {

@@ -1,6 +1,5 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using Xunit;
 
 namespace Guid_tryout.Tests;
 public class GuidTests
